@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
-This project is intended for Learning Purposes. This project is reated by Sandeep Ghosh using Angular, Angukar Material and Node.
+This project is intended for Learning Purposes. This project is reated by Sandeep Ghosh using Angular, Angular Material and Node.
 
 ## Development server
 
