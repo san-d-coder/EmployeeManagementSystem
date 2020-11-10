@@ -1,0 +1,13 @@
+mat-icon{
+    cursor: pointer;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.container{
+    text-align: center;
+    padding-left: 300px;
+    padding-right: 300px;
+}

@@ -1,0 +1,69 @@
+<mat-sidenav-container >
+    <mat-sidenav #snav>
+        <mat-icon (click)="toggleSideNav(snav)">arrow_backward</mat-icon>
+        <mat-icon style="margin-left: 110px;margin-bottom: 10px;" [matMenuTriggerFor]="profile">account_circle</mat-icon>
+        <mat-menu #profile="matMenu">
+            <button mat-menu-item routerLink="/authenticate/logout" (click)="toggleSideNav(snav)"><mat-icon>power_settings_new</mat-icon>Logout</button>
+          </mat-menu>
+        <mat-divider></mat-divider>
+        <mat-nav-list>
+            <mat-list-item>
+                <h4 matLine routerLink="/employees" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active-link" (click)="toggleSideNav(snav)">
+                    <mat-icon>
+                        group
+                    </mat-icon>
+                    <span class="icon-align">
+                        Home
+                    </span> 
+                </h4>
+            </mat-list-item>
+            <mat-list-item>
+                <h4 matLine routerLink="/employees/new" routerLinkActive="active-link" (click)="toggleSideNav(snav)">
+                    <mat-icon>
+                        add_circle_outline
+                    </mat-icon>
+                    <span class="icon-align">
+                        Create
+                    </span> 
+                </h4>
+            </mat-list-item>
+            <mat-list-item>
+                <h4 matLine routerLink="/employees/edit" routerLinkActive="active-link" (click)="toggleSideNav(snav)">
+                    <mat-icon>
+                        edit_outline
+                    </mat-icon>
+                    <span class="icon-align">
+                        Edit
+                    </span> 
+                </h4>
+            </mat-list-item>
+            <mat-list-item>
+                <h4 matLine routerLink="/employees/remove" routerLinkActive="active-link" (click)="toggleSideNav(snav)">
+                    <mat-icon>
+                        delete_outline
+                    </mat-icon>
+                    <span class="icon-align">
+                        Delete
+                    </span> 
+                </h4>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <mat-icon  *ngIf='_authService.loggedIn()' (click)="toggleSideNav(snav)">menu</mat-icon>
+            <span class="fill"></span>
+            <h2>Employee Management System</h2>
+            <span class="fill"></span>
+            <mat-icon  *ngIf='_authService.loggedIn()' [matMenuTriggerFor]="actions">more_vert</mat-icon>
+            <mat-menu #actions="matMenu">
+                <button mat-menu-item routerLink="/help"><mat-icon>help_outline</mat-icon>Help</button>
+                <button mat-menu-item routerLink="/help"><mat-icon>open_in_new</mat-icon>Open Admin Panel</button>
+            </mat-menu>
+              
+        </mat-toolbar>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

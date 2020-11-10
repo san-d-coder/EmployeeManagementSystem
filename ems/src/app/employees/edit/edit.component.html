@@ -1,0 +1,31 @@
+<div class="container">
+    <form (keydown.enter)="$event.preventDefault()" [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">
+        <mat-form-field>
+            <mat-label>Enter the email</mat-label>
+            <input matInput #search formControlName="email">
+            <mat-icon matSuffix (click)="searchEmployee(search.value)">search</mat-icon>
+        </mat-form-field>
+        <p *ngIf="errorOccurred">{{errorMessage}}</p>
+        <div *ngIf="employeeFound">
+        <br>
+        <mat-form-field >
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone">
+        </mat-form-field>
+        <br>
+       
+        <button mat-raised-button color="primary" type="submit">Save</button>
+        <button mat-raised-button color="accent" type="reset">Reset</button>
+        </div>
+    </form>
+</div>

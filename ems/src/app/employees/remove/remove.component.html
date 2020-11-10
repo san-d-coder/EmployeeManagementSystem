@@ -1,0 +1,24 @@
+<div class="container">
+    <form [formGroup]="deleteForm" (ngSubmit)="onSubmit(deleteForm.value)">
+        <mat-form-field>
+            <mat-label>Enter the email</mat-label>
+            <input matInput #search formControlName="email">
+            <mat-icon matSuffix (click)="searchEmployee(search.value)">search</mat-icon>
+        </mat-form-field>
+        <p *ngIf="errorOccurred">An error occurred: {{errorMessage}}</p>
+        <div *ngIf="employeeFound">
+        <br>   
+        <mat-divider></mat-divider>
+        <div>
+            <h3>Clicking on Delete will remove the following entry from the Database:</h3>
+            <br>
+            <p>Name: {{nameId}}</p>
+            <p>Email: {{emailId}}</p>
+            <p>Phone: {{phoneId}}</p>
+        </div>
+        Actions:
+        <button mat-raised-button color="primary" type="submit">Delete</button>
+        <button mat-raised-button color="accent" type="reset" (click)="onReset()">Reset</button>
+        </div>
+    </form>
+</div>

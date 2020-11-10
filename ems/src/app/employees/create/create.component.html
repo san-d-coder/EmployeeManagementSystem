@@ -1,0 +1,32 @@
+<div class="container">
+    <h3>Enter employee details</h3>
+    <mat-divider></mat-divider>
+    <div>
+        <h3 *ngIf="createSuccess">Employee created successfully</h3>
+        <h3 *ngIf="createFailure">Coudn't create an employee</h3>
+        <p *ngIf="createFailure">Error: {{errorMessage}}</p>
+    </div>
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit(createForm.value)">
+        <br>
+        <mat-form-field >
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone">
+        </mat-form-field>
+        <br>
+       
+        <button mat-raised-button color="primary" type="submit">Save</button>
+        
+        <button mat-raised-button color="accent" type="reset">Reset</button>
+        
+    </form>
+</div>
